@@ -1,0 +1,18 @@
+{% for post in posts %}
+    <div class="col-sm-6 col-lg-4 col-xxl-3 demo-grid-item">
+        <div class="card card-hover-shadow border">
+            <div class="card-body border-top">
+                <a class="navbar-brand p-2" href="{% url 'post_detail' post.slug %}">
+                    <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}" style="width: 20rem;">
+                </a><center>
+                <small>{{post.price|floatformat:1}}$</small>
+                <h3 class="mt-5">{{ post.title|title }}</h3>
+                <p class="card-text">{{ post.summary|truncatewords:3|upper  }}</p>
+                <p class="lead">Content : {{ post.text|wordcount}}</p>        
+                <p class="lead">{{ post.author }}</p>
+                <p class="lead">{{ post.publish|timesince }}</p>
+                </center>    
+            </div>
+        </div>
+    </div>
+{% endfor %}

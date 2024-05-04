@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+<section id="demos">
+    <div class="container-fluid px-md-5">
+        <div class="row mb-4 position-relative">
+            <div class="col-xl-6 mx-auto text-center">
+                <h2>List View</h2>
+            </div>
+        </div>
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    {% include 'b.html' %}
+                </div>
+            </div>
+        </div>
+        <div class="mt-5" style="text-align: center; margin: auto;">
+        </div>
+    </div>
+</section> 
+    {% include 'post.html' %}
+{% endblock %}

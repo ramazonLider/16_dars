@@ -1,0 +1,16 @@
+{% for post in posts %}
+    <div class="col">
+    <div class="card shadow-sm">
+        <a href="{% url 'post_detail' post.slug %}">
+            <img src="{{ post.photo.url }}" class="card-img-top" alt="">
+        </a>
+        <div class="card-body">
+        <h4>{{ post.title|title }}</h4>
+        <p class="card-text">{{ post.summary }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <small class="text-muted">{{ post.publish|timesince }}</small>
+        </div>
+        </div>
+    </div>
+    </div>
+{% endfor %}

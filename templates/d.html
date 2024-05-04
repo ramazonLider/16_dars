@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}{% comment %}
+<section id="demos">
+    <div class="container-fluid px-md-5">
+        <div class="row mb-4 position-relative">
+            <div class="col-xl-6 mx-auto text-center">
+                <h2>List View</h2><br>
+            </div>
+        </div>
+        <div class="row g-4 g-xl-7 demo-grid">
+            <div class="col-sm-6 col-lg-4 col-xxl-3 demo-grid-item">
+                <div class="card card-hover-shadow border">
+                    <div class="card-body border-top">
+                        <a class="navbar-brand p-2" href="/">
+                            <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}" style="width: 20rem;">
+                        </a><center>
+                        <small>{{post.price|floatformat:1}}$</small>
+                        <h3 class="mt-5">{{ post.title|title }}</h3>
+                        <p class="card-text">{{ post.summary|truncatewords:3|upper  }}</p>
+                        <p class="lead">Content : {{ post.content|wordcount}}</p>        
+                        <p class="lead">{{ post.author }}</p>
+                        <p class="lead">{{ post.publish|timesince }}</p>
+                        </center>    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>{% endcomment %}
+<section id="demos">
+    <div class="container-fluid px-md-5">
+        <div class="row mb-4 position-relative">
+            <div class="col-xl-6 mx-auto text-center">
+                <h2>Post Detail</h2><br>
+            </div>
+        </div>
+        <div class="row g-4 g-xl-7 demo-grid"><center>
+            <div class="col-sm-6 col-lg-4 col-xxl-3 demo-grid-item">                
+                <a class="navbar-brand p-2" href="/">
+                    <img class="card-img-top" src="{{ post.photo.url }}" alt="{{ post.title }}" style="width: 20rem;">
+                </a>
+                <center><small>{{ post.price }}$</small>
+                    <h3 class="mt-5">{{ post.title|title }}</h3>
+                    <p class="lead">{{ post.text|urlize|linebreaks }}</p>        
+                    <p class="lead">{{ post.author }}</p>
+                    <p class="lead">{{ post.publish|timesince }}</p>
+                    <a href="{% url 'home' %}">Barcha postlar</a>
+                </center>    
+            </div>
+        </div></center>
+    </div>
+</section> 
+{% endblock content %}
